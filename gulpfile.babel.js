@@ -60,7 +60,7 @@ gulp.task('jsdoc', ['cleanDocs', 'eslint'], $.shell.task([
 
 // Push documentation to github
 gulp.task('gh-pages', $.shell.task([
-  'git subtree push --prefix docs/htz-parse-bps-state/' + pkg.version,
+  'git subtree push --prefix docs/htz-parse-bps-state/' + pkg.version + ' origin gh-pages',
 ]));
 
 gulp.task('cleanDocs', del.bind(null, ['docs/**/*']));
