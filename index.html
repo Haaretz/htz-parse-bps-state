@@ -1,0 +1,20 @@
+<!docype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet">
+    <script src="jspm_packages/system.js"></script>
+    <script src="jspm.browser.js"></script>
+    <script src="jspm.config.js"></script>
+  </head>
+
+  <body>
+    <div>
+      Min-width x-large breakpoint is currently <span id="test"></span> <button type="button" id="test-btn">check again</button>
+    </div>
+
+    <script>
+      SystemJS.import('test.js');
+    </script>
+  </body>
+</html>

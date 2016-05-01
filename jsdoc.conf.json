@@ -1,0 +1,30 @@
+{
+  "source": {
+    "include": ["README.md", "src/", "./package.json"]
+  },
+	"tags": {
+		"allowUnknownTags": true
+	},
+	"opts": {
+    "template": "node_modules/ink-docstrap/template",
+    "recurse": true,
+		"destination": "./docs"
+	},
+	"plugins": [
+		"plugins/markdown"
+	],
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": false,
+		"default": {
+			"outputSourceFiles": true
+		},
+    "systemName": "HTZ Parse Breakpoints State",
+		"theme": "slate",
+		"navType": "vertical",
+		"linenums": true,
+		"dateFormat": "MMMM Do YYYY, h:mm:ss a"
+	}
+}
+
+
