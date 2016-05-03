@@ -60,7 +60,8 @@ gulp.task('jsdoc', ['cleanDocs', 'eslint'], $.shell.task([
 
 // Push documentation to github
 gulp.task('gh-pages', $.shell.task([
-  'git subtree push --prefix docs/htz-parse-bps-state/' + pkg.version + ' origin gh-pages',
+  'git push origin --delete gh-pages',
+  `git subtree push --prefix docs/htz-parse-bps-state/${pkg.version} origin gh-pages`,
 ]));
 
 gulp.task('cleanDocs', del.bind(null, ['docs/**/*']));
@@ -82,7 +83,7 @@ gulp.task('serve:docs', () => {
     notify: true,
     port: 9002,
     server: {
-      baseDir: './docs/htz-parse-bps-state/' + pkg.version,
+      baseDir: `./docs/htz-parse-bps-state/${pkg.version}`,
     },
   });
 

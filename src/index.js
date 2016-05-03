@@ -33,7 +33,7 @@ export function parseBpsState(selector) {
   */
 export function evaluateBp(bp, activeBps) {
   const fromUntil = bp && bp.indexOf && bp.indexOf('-until') > -1;
-  const until = !fromUntil && bp && bp.indexOf && bp.indexOf('until') > -1;
+  const until = !fromUntil && bp && bp.indexOf && bp.indexOf('until-') === 0;
   const from = !fromUntil && !until;
 
   // Remove whitespace
@@ -44,10 +44,12 @@ export function evaluateBp(bp, activeBps) {
     return (activeBps['from-until'][trimmedBp] && activeBps['from-until'][trimmedBp].active) ||
       false;
   }
-
-  // If until or something else
-  return (activeBps.until && activeBps.until[trimmedBp] && activeBps.until[trimmedBp].active) ||
-    false;
+  if (until) {
+    const bpName = trimmedBp.slice ? trimmedBp.slice(6) : undefined;
+    return (activeBps.until && activeBps.until[bpName] && activeBps.until[bpName].active) ||
+      false;
+  }
+  return false;
 }
 
 
