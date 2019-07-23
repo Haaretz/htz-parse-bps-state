@@ -63,7 +63,7 @@ export function evaluateBp(bp, activeBps) {
   */
 function removeQuotes(string) {
   if (typeof string === 'string' || string instanceof String) {
-    return string.replace(/^['"]+|\s+|\\|(;\s?})+|['"]$/g, '').replace("'",'');
+    return string.replace(/^['"]+|\s+|\\|(;\s?})+|['"]$/g, '').replace(/'/g,'');
   }
 
   return string;
